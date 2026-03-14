@@ -1,4 +1,4 @@
-from .core import DiscordSession
+from core import DiscordSession
 import asyncio
 
 async def get_guild_channels(api: DiscordSession, guild_id: int):
