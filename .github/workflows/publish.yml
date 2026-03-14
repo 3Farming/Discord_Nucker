@@ -1,7 +1,7 @@
-name: Publish to PyPI
+name: discord-nucker
 
 on:
-  release:
+  release: 
     types: [created]
 
 jobs:
