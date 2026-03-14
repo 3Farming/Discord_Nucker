@@ -1,6 +1,6 @@
 import aiohttp
 import base64
-from .core import DiscordSession
+from core import DiscordSession
 import asyncio
 from PIL import Image
 import io
