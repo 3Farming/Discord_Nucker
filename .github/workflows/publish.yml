@@ -1,24 +1,36 @@
-name: discord-nucker
+name: discord_nucker
 
 on:
-  release: 
-    types: [created]
+  push:
+    tags:
+      - "v*"
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+
     permissions:
-      id-token: write
+      contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.x"
 
-      - run: pip install build
+      - name: Install build tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
 
-      - run: python -m build
+      - name: Build package
+        run: python -m build
 
-      - uses: pypa/gh-action-pypi-publish@release/v1
+      - name: Publish package
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: twine upload dist/*
