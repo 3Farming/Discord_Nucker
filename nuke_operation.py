@@ -1,4 +1,4 @@
-from core import DiscordSession
+from .core import DiscordSession
 from . import utils
 import asyncio
 
