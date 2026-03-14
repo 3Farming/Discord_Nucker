@@ -1,23 +1,20 @@
 [build-system]
-requires = ["setuptools >= 77.0.3"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "DiscordNuker"
-version = "0.0.1"
-authors = [
-  { name="tidhsjsbfndjdjsjedb", email="tidfudgughx@gmail.com" },
-]
-description = "DiscordNuker"
+name = "dis-nuke"
+version = "0.1.0"
+description = "Discord utility package"
 readme = "README.md"
-requires-python = ">=3.9"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
-]
-license = "MIT"
-license-files = ["LICEN[CS]E*"]
+requires-python = ">=3.8"
 
-[project.urls]
-Homepage = "https://github.com/joinpxteamtoday1-cell/"
-Issues = "https://github.com/joinpxteamtoday1-cell/Discord_Nucker"
+dependencies = [
+  "discord.py",
+  "aiohttp",
+  "colorama",
+  "Pillow"
+]
+
+[tool.setuptools]
+packages = ["dis-nuke"]
